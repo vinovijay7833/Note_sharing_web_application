@@ -17,6 +17,7 @@ Features:
 5.Responsive design for use on desktop and mobile devices
 
 Technologies Used:
+
 1.Django
 
 2.HTML/CSS
