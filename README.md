@@ -5,9 +5,13 @@ This is a web application built with Django framework that allows users to creat
 
 Features:
 1.User registration and authentication
+
 2.Create, read, update, and delete notes
+
 3.Share notes with other users
+
 4.Collaborate on shared notes
+
 5.Responsive design for use on desktop and mobile devices
 
 Technologies Used:
