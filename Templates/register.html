@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    
+        {% if messages %}
+        <div class="card-nav">
+    <ul class="messages" style="list-style-type: none;">
+        {% for msg in messages %}       
+        <li style="text-align: center;">
+          <b>
+            <div class="alert alert-{{msg.level_tag}}" role="alert">
+            {{msg.message}}
+            </div>
+          </b>
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+    {% endif %}
+ 
+ 
+
+<div class="container">
+    <div class="card card-text mx-auto mt-5" style="border: 0;opacity: 0.9;">
+      <h1 class="text-white" style=" font-size:50px;text-align: justify;"><b>Notes Sharing App</b></h1>
+      <p class="text-white" style="font-size: 30px; text-align: justify;">We help you share your notes with your friends and family</p> 
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card card-login mx-auto mt-5" style="width:400px;">
+        <div class="card-header {{category}}">
+          Register an Account    
+        </div>
+       
+      <div class="card-body">
+        <form id="login"></form>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+              <label for="exampleInputName">Name</label>
+              <input class="form-control" name="username" type="name" aria-describedby="nameHelp" placeholder="Enter name" autofocus="">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input class="form-control" name="email" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input class="form-control" name="password" type="password" placeholder="Password">
+          </div>
+              <div class="form-group">
+                <label for="exampleConfirmPassword">Confirm password</label>
+                <input class="form-control" name="conf_password" type="password" placeholder="Confirm password">
+            </div>
+          <div class="form-group ">
+            <button class="btn btn-primary btn-block" type="submit">Register</button>
+          </div>
+        </form>
+        <div class="text-center">          
+            <a href="/">Already a user? Click here to Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <!--div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Incorrect Details</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Password does not match</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div-->
+</body>
+
+<style type="text/css">
+	body {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    background-color: #000000;
+  
+  }
+  .Modal{
+    text-align: center;
+    position: absolute;
+    align-self: center;
+    background-color: #ffffff;
+  }
+  .btn 
+  {
+   outline:0;
+   border:none;
+   border-top:none;
+   border-bottom:none;
+   border-left:none;
+   border-right:none;
+   box-shadow:inset 2px -3px rgba(0,0,0,0.15);
+  }
+  .btn:focus
+  {
+   outline:0;
+   -webkit-outline:0;
+   -moz-outline:0;
+  }
+  .card-text{
+  max-width: 40rem;
+  position: absolute;
+  left:30px;
+  top:180px;
+  background: transparent;
+}
+.card-nav{
+  position: relative;
+  top:-100px;
+  max-height:20px ;
+  max-width: 100px
+  background:transparent; 
+}
+.card-login {
+  max-width: 40rem;
+  position:absolute;
+  right:60px;
+  top:40px;
+
+}r
+</style>
+
+</html>

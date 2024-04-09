@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+      {% if messages %}
+        <div class="card-nav">
+          <ul class="messages" style="list-style-type: none;">
+            {% for msg in messages %}       
+              <li style="text-align: center;">
+                <b>
+                  <div class="alert alert-{{msg.level_tag}}" role="alert">
+                  {{msg.message}}
+                  </div>
+                </b>
+              </li>
+            {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+ 
+ 
+
+</head>
+
+<body>
+  <div class="row">
+  <div class="container col-md-6">
+    <div class="card card-text mx-auto mt-5" style="border: 0">
+      <h1 style="color:white; font-size:50px;text-align: justify;"><b>Notes Sharing App</b></h1>
+      <p style="font-size: 30px; color:rgb(227,224,228);text-align: justify;">We help you share your notes with your friends and family</p> 
+    </div>
+  </div>
+  <div class="container col-md-6">
+    <div class="card card-login mx-auto mt-5" style="width:400px;">
+      <div class="card-header {{category}}">
+         Login     
+      </div>
+        
+      
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email Address</label>
+              <input class="form-control" id="email" type="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required="true" autofocus="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input class="form-control" id="password" name="password" type="password" placeholder="Password" required="true">
+            </div>
+            
+            <div class="form-group">
+              <button class="btn btn-primary btn-block" type="submit">Login</button>
+            </div>
+          </form>
+          <div class="text-center">
+            <a href="/register">Register yourself here</a><br>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+<style type="text/css">
+	body {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    background-color: #000000;
+  
+  }
+  .btn 
+  {
+   outline:0;
+   border:none;
+   border-top:none;
+   border-bottom:none;
+   border-left:none;
+   border-right:none;
+   box-shadow:inset 2px -3px rgba(0,0,0,0.15);
+  }
+  .btn:focus
+  {
+   outline:0;
+   -webkit-outline:0;
+   -moz-outline:0;
+  }
+  .card-login {
+  position:absolute;
+  right:100px;
+  top:-30px;
+}
+.card-nav{
+  position: relative;
+  top:-100px;
+  max-height:20px ;
+  max-width: 100px
+  background:transparent; 
+}
+.card-text{
+  max-width: 40rem;
+  position: absolute;
+  left:30px;
+  top:10px;
+  background: transparent;
+}r
+</style>
+
+</html>
+

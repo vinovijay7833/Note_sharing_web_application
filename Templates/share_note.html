@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share Notes</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  {% if messages %}
+        <div class="card-nav">
+          <ul class="messages" style="list-style-type: none;">
+            {% for msg in messages %}       
+              <li style="text-align: center;">
+                <b>
+                  <div class="alert alert-{{msg.level_tag}}" role="alert">
+                  {{msg.message}}
+                  </div>
+                </b>
+              </li>
+            {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+</head>
+<body style="background-color:#000000">
+<div class="container card">
+ <div class="row">
+ <div class="col-md-10">
+<center>
+
+   <form class="form-horizontal" action="/shareNote/" method="post">
+   {% csrf_token %}
+   <fieldset>
+   <legend class="text-center header">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Share Note</legend>
+   <div class="form-group">
+   <span class="col-md-1 col-md-offset-2 text-center"></span>
+   <div class="col-md-8">
+    {% if notes%}
+    <select name="note_id">
+      <option>Enter Note Id</option>
+      {% for e in notes%}
+      <option value={{e.id}}>{{e.id}}</option>
+      {%endfor%}
+    </select>
+      {%endif%}
+   <!--input id="fname" name="note_id" type="text" placeholder="Enter Note Id" class="form-control"-->
+   </div>
+   </div>
+   <br>
+   <br>
+
+   <div class="form-group dropdown">
+   <span class="col-md-1 col-md-offset-2 text-center"></span>
+   <div class="col-md-8">
+    {% if users%}
+    <select name="user">
+      <option>Enter Email-Id of Receiver</option>
+      {% for e in users%}
+      {%ifnotequal e.email_id Username%}
+      <option value={{e.email_id}}>{{e.email_id}}</option>
+      {% endifnotequal %}
+      {%endfor%}
+    </select>
+      {%endif%}
+   <!--textarea class="form-control" id="message" name="user" placeholder="Enter Receiver Name"></textarea-->
+   </div>
+   </div>
+   <br>
+   <br>
+   <div class="form-group dropdown">
+   <div class="col-md-12 col-md-offset-1"><center>
+   <button type="submit" class="btn btn-primary btn-lg">Submit</button></center>
+   </div>
+   </div>
+   </fieldset>
+ </form>
+ </center>
+ </div>
+ </div>
+</div>
+
+</body>
+
+
+</script-->
+<style type="text/css">
+  legend{
+    color: #ffffff;
+    font-size: 40px;
+    border-color: #000000;
+  }
+  .card{
+    position: absolute;
+    top:100px;
+    left:90px;
+  }
+  .card-nav{
+  position: relative;
+  top:30px;
+  max-height:20px ;
+  max-width: 100px
+  background:transparent; 
+}
+
+</style>
+</html>
